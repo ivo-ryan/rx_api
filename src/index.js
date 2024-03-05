@@ -42,18 +42,8 @@ app.get("/" , async (req , res) => {
    return  res.send( animes )
 });
 
-app.get("/:id" , async (req , res) => {
-    const animes = await Animes.findById(req.params.id);
-   return  res.send( animes )
-});
-
 app.get("/filmes", async (req , res) => {
     const filmes = await Filmes.find();
-    return res.send( filmes )
-});
-
-app.get("/filmes/:id", async (req , res) => {
-    const filmes = await Filmes.findById(req.params.id);
     return res.send( filmes )
 });
 
@@ -77,12 +67,22 @@ app.post("/user", async (req , res) => {
 
        await user.save()
        return res.send(user)
-})
+});
 
 app.get("/user" , async (req , res) => {
     const user = await User.find()
    return  res.send(user)
-})
+});
+
+app.get("/:id" , async (req , res) => {
+    const animes = await Animes.findById(req.params.id);
+   return  res.send( animes )
+});
+
+app.get("/filmes/:id", async (req , res) => {
+    const filmes = await Filmes.findById(req.params.id);
+    return res.send( filmes )
+});
 
 app.delete('/user/:id', async (req, res) => {
     const user = await User.findByIdAndDelete(req.params.id)
