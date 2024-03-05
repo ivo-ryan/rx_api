@@ -44,7 +44,12 @@ const Filmes = mongoose.model('Filmes' , {
 app.get("/" , async (req , res) => {
     const animes = await Animes.find();
    return  res.send( animes )
-})
+});
+
+app.get("/:name" , async (req , res) => {
+    const animes = await Animes.find(req.params.name);
+   return  res.send( animes )
+});
 
 app.get("/filmes", async (req , res) => {
     const filmes = await Filmes.find();
