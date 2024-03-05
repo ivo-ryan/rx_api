@@ -1,7 +1,7 @@
 
 const express = require ("express");
 const mongoose = require('mongoose');
-const  cors = require('cors')
+const  cors = require('cors');
 
 
 const app = express();
@@ -9,11 +9,11 @@ const app = express();
 app.use(express.json());
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header ("Access-Control-Allow-Origin", "*");
 
     app.use(cors());
     next();
-})
+});
 
 const port = process.env.PORT || 3000;
 
@@ -21,7 +21,7 @@ const User = mongoose.model('User', {
 
     email: String || Number,
     senha: String ,
-})
+});
 
 const Animes = mongoose.model('Animes', {
     name: String,
