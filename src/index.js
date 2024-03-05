@@ -15,7 +15,9 @@ app.use((req, res, next) => {
 
     res.header("Access-Control-Allow-Headers", "Content-Type");
 
-    app.use(cors());
+    app.use(cors({
+        origin: "*"
+    }));
     next();
 })
 
