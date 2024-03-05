@@ -46,6 +46,11 @@ app.get("/" , async (req , res) => {
    return  res.send( animes )
 });
 
+app.get("/:id" , async (req , res) => {
+    const animes = await Animes.findById(req.params.id);
+   return  res.send( animes )
+});
+
 app.get("/filmes", async (req , res) => {
     const filmes = await Filmes.find();
     return res.send( filmes )
