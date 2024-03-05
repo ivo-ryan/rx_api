@@ -47,7 +47,7 @@ app.get("/" , async (req , res) => {
 });
 
 app.get("/:name" , async (req , res) => {
-    const animes = await Animes.find(req.params.name);
+    const animes = await Animes.find();
    return  res.send( animes )
 });
 
