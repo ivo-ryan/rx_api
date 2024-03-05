@@ -56,6 +56,11 @@ app.get("/filmes", async (req , res) => {
     return res.send( filmes )
 });
 
+app.get("/filmes/:id" , async (req , res) => {
+    const filme = await Filmes.findById(req.params.id);
+   return  res.send( filme )
+});
+
 app.put("/filmes/:id", async ( req, res ) => {
     const filme = await Filmes.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
